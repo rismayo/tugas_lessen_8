@@ -61,10 +61,15 @@ class GameFragment : Fragment() {
                 R.string.word_count, 0, MAX_NO_OF_WORDS)
     }
 
+    override fun onDetach() {
+        super.onDetach()
+        Log.d("GameFragment", "GameFragment destroyed!")
+    }
+
     /*
-    * Checks the user's word, and updates the score accordingly.
-    * Displays the next scrambled word.
-    */
+        * Checks the user's word, and updates the score accordingly.
+        * Displays the next scrambled word.
+        */
     private fun onSubmitWord() {
     }
 

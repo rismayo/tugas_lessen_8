@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 class GameViewModel : ViewModel() {
     init {
         Log.d("GameFragment", "GameViewModel created!")
+        getNextWord()
     }
 
     private var score = 0
@@ -16,6 +17,7 @@ class GameViewModel : ViewModel() {
 
     private var wordsList: MutableList<String> = mutableListOf()
     private lateinit var currentWord: String
+
 
 
     override fun onCleared() {

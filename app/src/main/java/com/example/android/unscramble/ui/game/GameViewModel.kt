@@ -25,5 +25,6 @@ class GameViewModel : ViewModel() {
 
     private fun getNextWord() {
         currentWord = allWordsList.random()
+
     }
 }

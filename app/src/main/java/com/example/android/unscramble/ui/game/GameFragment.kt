@@ -21,7 +21,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.android.unscramble.R
@@ -72,13 +71,9 @@ class GameFragment : Fragment() {
         * Checks the user's word, and updates the score accordingly.
         * Displays the next scrambled word.
         */
-    private  fun onSubmitWord() {
-        if (viewModel.nextWord()) {
-            updateNextWordOnScreen()
-        } else {
-            showFinalScoreDialog()
-        }
+    private fun onSubmitWord() {
     }
+
     /*
      * Skips the current word without changing the score.
      * Increases the word count.
@@ -98,7 +93,6 @@ class GameFragment : Fragment() {
 * Creates and shows an AlertDialog with the final score.
 */
     private fun showFinalScoreDialog() {
-        MaterialAlertDialogBuilder(requireContext())
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(R.string.congratulations))
             .setMessage(getString(R.string.you_scored, viewModel.score))

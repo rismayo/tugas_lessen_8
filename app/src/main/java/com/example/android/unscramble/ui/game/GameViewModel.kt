@@ -18,6 +18,9 @@ class GameViewModel : ViewModel() {
     private var _score = 0
     val score: Int
         get() = _score
+    private fun increaseScore() {
+        _score += SCORE_INCREASE
+    }
 
     init {
         Log.d("GameFragment", "GameViewModel created!")

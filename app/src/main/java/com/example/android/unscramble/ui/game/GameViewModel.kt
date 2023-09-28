@@ -23,7 +23,7 @@ class GameViewModel : ViewModel() {
     val score: LiveData<Int>
         get() = _score
     private fun increaseScore() {
-        _score += SCORE_INCREASE
+        _score.value = (_score.value)?.plus(SCORE_INCREASE)
     }
 
     init {

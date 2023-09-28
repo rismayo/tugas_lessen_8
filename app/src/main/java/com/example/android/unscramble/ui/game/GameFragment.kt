@@ -78,10 +78,9 @@ class GameFragment : Fragment() {
 
         if (viewModel.isUserWordCorrect(playerWord)) {
             setErrorTextField(false)
-        if (viewModel.nextWord()) {
-        } else {
-            showFinalScoreDialog()
-        }
+            if (!viewModel.nextWord()) {
+                showFinalScoreDialog()
+            }
         } else {
             setErrorTextField(true)
         }

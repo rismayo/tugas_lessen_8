@@ -15,8 +15,8 @@ class GameViewModel : ViewModel() {
     val currentWordCount: LiveData<Int>
         get() = _currentWordCount
 
-    private lateinit var _currentScrambledWord: String
-    val currentScrambledWord: String
+    private val _currentScrambledWord = MutableLiveData<String>()
+    val currentScrambledWord:LiveData<String>
         get() = _currentScrambledWord
 
     private val _score = MutableLiveData(0)
@@ -46,7 +46,7 @@ class GameViewModel : ViewModel() {
         if (wordsList.contains(currentWord)) {
             getNextWord()
         } else {
-            currentScrambledWord.value = String(tempWord)
+            _currentScrambledWord.value = String(tempWord)
             _currentWordCount.value = (_currentWordCount.value)?.inc()
             wordsList.add(currentWord)
         }
